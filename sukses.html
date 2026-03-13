@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Sukses Ramadhan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #eef9f3; 
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .main-frame {
+            width: 100%;           
+            max-width: 480px;      
+            background-color: white;
+            min-height: 100vh;
+            border-radius: 45px 45px 0 0; 
+            margin-top: 25px; 
+            padding: 30px 20px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .back-link { align-self: flex-start; text-decoration: none; color: #008450; font-weight: bold; margin-bottom: 20px; }
+        .header-title { color: #00a86b; font-size: 24px; font-weight: 800; margin-bottom: 8px; text-align: center;}
+        .header-sub { color: #777; font-size: 13px; text-align: center; margin-bottom: 30px; }
+
+        /* LIST PENJELASAN (KARTU) */
+        .sukses-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card-sukses {
+            display: flex;
+            align-items: flex-start;
+            background: #fff;
+            border: 1.5px solid #eef2f0;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .card-sukses:active {
+            transform: scale(0.98);
+        }
+
+        /* ANGKA BULAT HIJAU */
+        .number-badge {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, #008450 0%, #00a86b 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .text-content h3 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .text-content p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* FOOTER GUNFIGHTER */
+        .footer-brand {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #333;            
+            opacity: 0.2;           
+            font-size: 12px;        
+            letter-spacing: 4px;    
+            font-weight: 800;       
+            text-align: center;
+            text-transform: uppercase; 
+        }
+
+        @media (max-width: 480px) { .main-frame { margin-top: 0; border-radius: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="main-frame">
+        <a href="index.html" class="back-link">← Kembali</a>
+
+        <h1 class="header-title">5 Sukses Ramadhan</h1>
+        <p class="header-sub">Target amalan utama yang harus kita raih selama bulan suci Ramadhan.</p>
+
+        <div class="sukses-list">
+            
+            <div class="card-sukses">
+                <div class="number-badge">1</div>
+                <div class="text-content">
+                    <h3>Sukses Puasa</h3>
+                    <p>Menjalankan ibadah puasa sebulan penuh, menahan diri dari hawa nafsu, makan, dan minum dari terbit fajar hingga terbenam matahari.</p>
+                </div>
+            </div>
+
+            <div class="card-sukses">
+                <div class="number-badge">2</div>
+                <div class="text-content">
+                    <h3>Sukses Shalat Tarawih</h3>
+                    <p>Mendirikan shalat sunnah Tarawih berjamaah setiap malam di bulan Ramadhan untuk mendapatkan pahala ibadah semalam suntuk.</p>
+                </div>
+            </div>
+
+            <div class="card-sukses">
+                <div class="number-badge">3</div>
+                <div class="text-content">
+                    <h3>Sukses Tadarus Al-Qur'an</h3>
+                    <p>Membaca dan mengkhatamkan Al-Qur'an, serta memahami maknanya sebagai pedoman hidup sehari-hari.</p>
+                </div>
+            </div>
+
+            <div class="card-sukses">
+                <div class="number-badge">4</div>
+                <div class="text-content">
+                    <h3>Sukses Lailatul Qadar</h3>
+                    <p>Menghidupkan malam-malam terakhir Ramadhan dengan itikaf dan doa untuk meraih kemuliaan malam yang lebih baik dari 1000 bulan.</p>
+                </div>
+            </div>
+
+            <div class="card-sukses">
+                <div class="number-badge">5</div>
+                <div class="text-content">
+                    <h3>Sukses Zakat Fitrah</h3>
+                    <p>Menyucikan jiwa dan harta dengan menunaikan zakat fitrah sebelum pelaksanaan shalat Idul Fitri.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="footer-brand">GUNFIGHTER</p>
+    </div>
+
+</body>
+</html>
