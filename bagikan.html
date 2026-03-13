@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencapaian Saya</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #eef9f3; 
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .main-frame {
+            width: 100%;           
+            max-width: 480px;      
+            background-color: white;
+            min-height: 100vh;
+            border-radius: 45px 45px 0 0; 
+            margin-top: 25px; 
+            padding: 40px 25px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .back-link { align-self: flex-start; text-decoration: none; color: #008450; font-weight: bold; margin-bottom: 30px; }
+        
+        .congrats-icon { font-size: 60px; margin-bottom: 20px; }
+        .title { color: #008450; font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+        .desc { color: #666; font-size: 14px; margin-bottom: 40px; line-height: 1.6; }
+
+        /* KOTAK SKOR */
+        .score-card {
+            width: 100%;
+            background: linear-gradient(135deg, #008450 0%, #00a86b 100%);
+            padding: 40px 20px;
+            border-radius: 30px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 132, 80, 0.2);
+            margin-bottom: 40px;
+        }
+        .score-number { font-size: 50px; font-weight: 900; display: block; }
+        .score-label { font-size: 16px; opacity: 0.9; font-weight: 500; }
+
+        .btn-share-wa {
+            width: 100%;
+            padding: 18px;
+            background-color: #25D366; /* Warna WhatsApp */
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-brand { margin-top: auto; opacity: 0.2; letter-spacing: 4px; font-weight: 800; font-size: 12px; padding-top: 40px; }
+
+        @media (max-width: 480px) { .main-frame { margin-top: 0; border-radius: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="main-frame">
+        <a href="doa.html" class="back-link">← Kembali</a>
+
+        <div class="congrats-icon">🎉</div>
+        <h1 class="title">مَا شَاءَ اللّٰهُ</h1>
+        <p class="desc">Kamu telah menyelesaikan bacaan doa hari ini. Semoga berkah dan menjadi amal jariyah.</p>
+
+        <div class="score-card">
+            <span class="score-label">Total Bacaan</span>
+            <span id="final-score" class="score-number">0</span>
+            <span class="score-label">dari 1000 kali</span>
+        </div>
+
+        <button class="btn-share-wa" onclick="shareWhatsApp()">Bagikan ke WhatsApp</button>
+
+        <p class="footer-brand">GUNFIGHTER</p>
+    </div>
+
+    <script>
+        // Ambil data hitungan dari doa.html yang tersimpan di localStorage
+        let hasilHitung = localStorage.getItem('doaCounter') || 0;
+        document.getElementById('final-score').innerText = hasilHitung;
+
+        function shareWhatsApp() {
+            let pesan = "Alhamdulillah, saya sudah membaca Doa Lailatul Qadar sebanyak " + hasilHitung + " kali hari ini di aplikasi Si Jagat!";
+            window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(pesan));
+        }
+    </script>
+
+</body>
+</html>
