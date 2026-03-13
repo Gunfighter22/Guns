@@ -32,7 +32,6 @@
         .header-title { color: #00a86b; font-size: 24px; font-weight: 800; margin-bottom: 8px; }
         .header-sub { color: #777; font-size: 13px; text-align: center; margin-bottom: 30px; }
 
-        /* KOTAK DO'A */
         .card-arab {
             width: 100%;
             border: 1.5px solid #eef2f0;
@@ -44,7 +43,6 @@
         .arab-text { font-size: 28px; line-height: 2; color: #333; margin-bottom: 15px; }
         .latin-text { font-style: italic; color: #555; font-size: 13px; }
 
-        /* PROGRESS SECTION */
         .progress-section { width: 100%; margin: 25px 0; }
         .progress-info { display: flex; justify-content: space-between; font-size: 13px; color: #444; font-weight: bold; margin-bottom: 8px; }
         .progress-bar-bg { width: 100%; height: 12px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
@@ -57,7 +55,6 @@
             transition: width 0.3s ease; 
         }
 
-        /* TOMBOL HITUNG */
         .btn-count {
             width: 100%;
             padding: 22px;
@@ -73,18 +70,16 @@
         }
         .btn-count:active { transform: scale(0.95); }
 
-        /* AKSI BAWAH */
         .bottom-actions { width: 100%; display: flex; gap: 12px; margin-top: 20px; }
         .btn-outline { flex: 3; padding: 12px; border: 1.5px solid #00a86b; background: white; color: #00a86b; border-radius: 12px; font-weight: bold; cursor: pointer; }
         .btn-reset { flex: 1; padding: 12px; border: 1.5px solid #ddd; background: white; color: #777; border-radius: 12px; cursor: pointer; }
 
-        /* TULISAN GUNFIGHTER (PUDAR & KEREN) */
         .footer-brand {
-            margin-top: 60px;       /* Jarak jauh dari tombol */
+            margin-top: 60px;      
             color: #333;            
-            opacity: 0.2;           /* Pudar banget biar estetik */
+            opacity: 0.2;         
             font-size: 12px;        
-            letter-spacing: 4px;    /* Jarak antar huruf biar keren */
+            letter-spacing: 4px;   
             font-weight: 800;       
             text-align: center;
             text-transform: uppercase; 
@@ -102,7 +97,7 @@
         <p class="header-sub">Yuk raih lailatul qodar dengan membaca doa berikut</p>
 
         <div class="card-arab">
-            <div class="arab-text">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+            <div class="arab-text">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
             <div class="latin-text">"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</div>
         </div>
 
@@ -129,14 +124,12 @@
     </div>
 
     <script>
-        // Ambil data dari penyimpanan browser (biar ga ilang pas refresh)
         let hitungan = localStorage.getItem('doaCounter') ? parseInt(localStorage.getItem('doaCounter')) : 0;
         const target = 1000;
 
         const teksCounter = document.getElementById('counter-text');
         const batangProgress = document.getElementById('progress-fill');
 
-        // Update tampilan pertama kali saat load halaman
         updateTampilan();
 
         function tambahHitungan() {

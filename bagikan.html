@@ -35,7 +35,6 @@
         .title { color: #008450; font-size: 24px; font-weight: 800; margin-bottom: 10px; }
         .desc { color: #666; font-size: 14px; margin-bottom: 40px; line-height: 1.6; }
 
-        /* KOTAK SKOR */
         .score-card {
             width: 100%;
             background: linear-gradient(135deg, #008450 0%, #00a86b 100%);
@@ -51,7 +50,7 @@
         .btn-share-wa {
             width: 100%;
             padding: 18px;
-            background-color: #25D366; /* Warna WhatsApp */
+            background-color: #25D366; 
             color: white;
             border: none;
             border-radius: 15px;
@@ -88,12 +87,11 @@
     </div>
 
     <script>
-        // Ambil data hitungan dari doa.html yang tersimpan di localStorage
         let hasilHitung = localStorage.getItem('doaCounter') || 0;
         document.getElementById('final-score').innerText = hasilHitung;
 
         function shareWhatsApp() {
-            let pesan = "Alhamdulillah, saya sudah membaca Doa Lailatul Qadar sebanyak " + hasilHitung + " kali hari ini di Gunfighter Lailatul Qadar";
+            let pesan = "Alhamdulillah, saya sudah membaca Doa Lailatul Qadar sebanyak " + hasilHitung + " kali hari ini di web Gunfighter Lailatul Qadar";
             window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(pesan));
         }
     </script>
