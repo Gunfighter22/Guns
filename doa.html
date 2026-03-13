@@ -85,6 +85,39 @@
             text-transform: uppercase; 
         }
 
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-box {
+            background: white;
+            width: 85%;
+            max-width: 320px;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-title { color: #008450; font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+        .modal-text { color: #666; font-size: 14px; margin-bottom: 25px; line-height: 1.5; }
+        .modal-actions { display: flex; gap: 10px; }
+        .btn-batal { flex: 1; padding: 12px; background: #f0f0f0; color: #555; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
+        .btn-yakin { flex: 1; padding: 12px; background: #e74c3c; color: white; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
+
         @media (max-width: 480px) { .main-frame { margin-top: 0; border-radius: 0; } }
     </style>
 </head>
@@ -97,7 +130,7 @@
         <p class="header-sub">Yuk raih lailatul qodar dengan membaca doa berikut</p>
 
         <div class="card-arab">
-            <div class="arab-text">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+            <div class="arab-text">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
             <div class="latin-text">"Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"</div>
         </div>
 
@@ -111,16 +144,27 @@
             </div>
         </div>
 
-        <button class="btn-count" onclick="tambahHitungan()">Klik untuk Hitung</button>
+        <button class="btn-count" onclick="tambahHitungan()">Klik Untuk Hitung</button>
 
        <div class="bottom-actions">
             <a href="bagikan.html" style="text-decoration: none; flex: 3;">
                 <button class="btn-outline" style="width: 100%;">Bagikan Progress</button>
             </a>
-            <button class="btn-reset" onclick="resetHitungan()">Reset</button>
+            <button class="btn-reset" onclick="munculkanModal()">Reset</button>
         </div>
 
         <p class="footer-brand">GUNFIGHTER</p>
+    </div>
+
+    <div class="modal-overlay" id="customModal">
+        <div class="modal-box">
+            <h3 class="modal-title">Gunfighter Lailatul Qadar</h3>
+            <p class="modal-text">Apakah Anda yakin ingin mengulang hitungan dari 0?</p>
+            <div class="modal-actions">
+                <button class="btn-batal" onclick="tutupModal()">Batal</button>
+                <button class="btn-yakin" onclick="prosesReset()">Ya, Ulangi</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -140,12 +184,19 @@
             }
         }
 
-        function resetHitungan() {
-            if (confirm("Apakah Anda yakin ingin mengulang dari 0?")) {
-                hitungan = 0;
-                saveToLocal();
-                updateTampilan();
-            }
+        function munculkanModal() {
+            document.getElementById('customModal').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+
+        function prosesReset() {
+            hitungan = 0;
+            saveToLocal();
+            updateTampilan();
+            tutupModal(); 
         }
 
         function saveToLocal() {
